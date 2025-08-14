@@ -369,37 +369,39 @@
 </head>
 <body>
     <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Betly - বিশেষ অফার!</title>
+    <title>Betly - Special Offer</title>
     <style>
-        /* নোটিফিকেশন বার স্টাইল */
+        /* Mobile-optimized notification bar */
         #notification-bar {
             position: fixed;
-            top: -100px;
+            top: -50px;
             left: 0;
             width: 100%;
-            background: linear-gradient(90deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background: linear-gradient(90deg, #1a2a6c, #b21f1f);
             color: white;
-            padding: 15px 0;
+            padding: 12px 0;
             text-align: center;
             z-index: 10000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         .slide-in {
-            animation: slideIn 0.8s forwards;
+            animation: slideIn 0.5s forwards;
         }
 
         .slide-out {
-            animation: slideOut 0.8s forwards;
+            animation: slideOut 0.5s forwards;
         }
 
         @keyframes slideIn {
@@ -408,102 +410,81 @@
 
         @keyframes slideOut {
             from { top: 0; }
-            to { top: -100px; }
+            to { top: -50px; }
         }
 
         .notification-content {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
             gap: 10px;
-        }
-
-        .notification-content p {
-            margin: 0;
-            font-size: 18px;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            padding: 0 10px;
+            width: 100%;
+            justify-content: center;
         }
 
         .claim-btn {
             background: #FFD700;
             color: #000;
-            padding: 10px 25px;
+            padding: 6px 12px;
             border: none;
-            border-radius: 50px;
+            border-radius: 4px;
             font-weight: bold;
             cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-        }
-
-        .claim-btn:hover {
-            background: #FFA500;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            font-size: 13px;
+            margin-left: 8px;
+            white-space: nowrap;
         }
 
         .close-btn {
-            background: rgba(255,255,255,0.2);
+            background: transparent;
             color: white;
             border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s;
+            margin-left: 10px;
+            padding: 0 5px;
         }
 
-        .close-btn:hover {
-            background: rgba(255,255,255,0.4);
-            transform: rotate(90deg);
+        /* Blinking animation for urgency */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
-
-        @media (max-width: 768px) {
-            .notification-content {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .notification-content p {
-                font-size: 15px;
-            }
-            .claim-btn {
-                padding: 8px 20px;
-                font-size: 14px;
-            }
+        
+        .blink {
+            animation: blink 1.5s infinite;
         }
     </style>
 </head>
 <body>
-    <!-- নোটিফিকেশন বার -->
+    <!-- Notification Bar -->
     <div id="notification-bar">
         <div class="notification-content">
-            <p>🎉 ১০০% বোনাস পেতে এখনই ক্লিক করুন! 200% পর্যন্ত বেটিং বোনাস!</p>
-            <button class="claim-btn" onclick="claimOffer()">ক্লেইম করুন</button>
+            <span class="blink">🎯 LIMITED TIME!</span> 
+            <span>Get 100% Bonus →</span>
+            <button class="claim-btn" onclick="claimOffer()">CLAIM NOW</button>
+            <button class="close-btn" onclick="closeNotification()">×</button>
         </div>
-        <button class="close-btn" onclick="closeNotification()">✕</button>
     </div>
 
     <script>
         const notification = document.getElementById('notification-bar');
         let notificationTimer;
 
-        // প্রথম বার শো করার ফাংশন
+        // Show notification immediately
         function showNotification() {
             notification.classList.add('slide-in');
             notification.style.display = 'flex';
             
-            // ২০ সেকেন্ড পর স্বয়ংক্রিয় বন্ধ
+            // Auto-close after 20 seconds
             clearTimeout(notificationTimer);
             notificationTimer = setTimeout(() => {
                 closeNotification();
             }, 20000);
         }
 
-        // বন্ধ করার ফাংশন
+        // Close notification
         function closeNotification() {
             notification.classList.remove('slide-in');
             notification.classList.add('slide-out');
@@ -512,23 +493,24 @@
                 notification.style.display = 'none';
                 notification.classList.remove('slide-out');
                 
-                // ১ মিনিট পর আবার শো করবে
+                // Show again after 1 minute
                 setTimeout(showNotification, 60000);
-            }, 800);
+            }, 500);
         }
 
-        // ক্লেইম বাটন ফাংশন
+        // Claim button function
         function claimOffer() {
             window.location.href = 'https://refpa58144.com/L?tag=d_905607m_1622c_2023&site=905607&ad=1622';
         }
 
-        // পেজ লোড হওয়ার সাথে সাথে শো করবে
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             showNotification();
         });
     </script>
 </body>
 </html>
+            
 
     <!----ses---->
     
