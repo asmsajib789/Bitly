@@ -369,8 +369,12 @@
 </head>
 <body>
     <!-----popuop--->
-    <!-- Floating Get Offer Button -->
-<button id="get-offer-btn">🎁 Get Offer</button>
+    <!-- Header -->
+<header>
+  <h1>Bet Online 24</h1>
+  <!-- Get Offer Button -->
+  <button id="get-offer-btn">🎁 Get Offer</button>
+</header>
 
 <!-- Popup -->
 <div id="promo-popup">
@@ -387,28 +391,30 @@
 </div>
 
 <style>
-/* Floating Button */
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: #0D47A1;
+  color: #fff;
+}
+
+/* Get Offer Button */
 #get-offer-btn {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
   background: #FF5722;
   color: #fff;
   border: none;
-  border-radius: 50px;
-  padding: 12px 20px;
-  font-size: 16px;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  z-index: 9999;
-  animation: pulse 2s infinite;
+  transition: 0.3s;
 }
 
-/* Pulse Animation */
-@keyframes pulse {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  50% { transform: translateY(-50%) scale(1.1); }
+#get-offer-btn:hover {
+  transform: scale(1.05);
 }
 
 /* Popup Background */
@@ -463,7 +469,6 @@
   transition: 0.3s;
 }
 
-/* Individual Button Colors */
 .btn-1xbet { background: #25D366; }
 .btn-linebet { background: #128C7E; }
 .btn-melbet { background: #FF9800; }
@@ -472,7 +477,7 @@
 </style>
 
 <script>
-// Floating button click -> show popup
+// Get Offer Button click -> show popup
 document.getElementById('get-offer-btn').addEventListener('click', () => {
   document.getElementById('promo-popup').style.display = 'flex';
   document.getElementById('promo-popup').classList.add('show');
