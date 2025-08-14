@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Affiliate Bonus Offers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3a56d4;
+      --secondary: #ff6b6b;
+      --dark: #2d3436;
+      --light: #f7f9fc;
+      --gray: #a0aec0;
+      --success: #00c853;
+      --warning: #ff5722;
+      --info: #2196f3;
+      --radius: 16px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      position: relative;
+      height: 85vh;
+      max-height: 800px;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+    }
+
+    /* App header */
+    .app-header {
+      background: linear-gradient(90deg, var(--primary), #3a0ca3);
+      color: white;
+      padding: 25px 20px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
+    .app-header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .app-header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-top: 8px;
+      font-weight: 300;
+    }
+
+    .notification-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: rgba(255,255,255,0.2);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    /* Content area */
+    .app-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background: var(--light);
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 15px 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .stat-card i {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .stat-card .number {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+      color: var(--dark);
+    }
+
+    .stat-card .label {
+      font-size: 0.7rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 24px 0 16px;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .section-title i {
+      margin-right: 8px;
+      color: var(--primary);
+    }
+
+    /* Affiliate links */
+    .link-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .link-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid #eee;
+    }
+
+    .link-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .link-icon {
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .logo-1xbet {
+      background: linear-gradient(135deg, #00c853, #009624);
+    }
+
+    .logo-linebet {
+      background: linear-gradient(135deg, #ff5722, #e64a19);
+    }
+
+    .logo-melbet {
+      background: linear-gradient(135deg, #2196f3, #0d47a1);
+    }
+
+    .logo-betwinner {
+      background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+    }
+
+    .link-content {
+      flex: 1;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .link-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .link-content p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .bonus-tag {
+      display: inline-block;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      color: #d32f2f;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Popup */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup {
+      background: white;
+      width: 90%;
+      max-width: 350px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: popIn 0.4s ease;
+      position: relative;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-header {
+      background: linear-gradient(90deg, var(--primary), #3a0ca3);
+      color: white;
+      padding: 25px 20px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .popup-header i {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      display: block;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .popup-header h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .popup-content {
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    .popup-content p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .popup-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 20px 20px;
+    }
+
+    .popup-btn {
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .popup-btn.primary {
+      background: linear-gradient(90deg, var(--success), #00b248);
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,200,83,0.3);
+    }
+
+    .popup-btn.secondary {
+      background: #edf2f7;
+      color: var(--dark);
+    }
+
+    .popup-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-3px);
+    }
+
+    /* App footer */
+    .app-footer {
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      border-top: 1px solid #edf2f7;
+      padding: 12px 0;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+    }
+
+    .footer-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--gray);
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+
+    .footer-btn i {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .footer-btn.active {
+      color: var(--primary);
+      background: rgba(67, 97, 238, 0.1);
+    }
+
+    .footer-btn:hover {
+      color: var(--primary);
+    }
+
+    /* Animation for clicks */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse {
+      animation: pulse 0.4s ease;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .app-container {
+        height: 100vh;
+        max-height: none;
+        border-radius: 0;
+      }
+      
+      .app-header {
+        padding: 20px 16px 16px;
+      }
+      
+      .app-content {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="app-header">
+      <div class="notification-icon">
+        <i class="fas fa-bell"></i>
+      </div>
+      <h1>Exclusive Bonus Offers</h1>
+      <p>Limited time welcome bonuses up to 100%</p>
+    </div>
+    
+    <div class="app-content">
+      <div class="stats-container">
+        <div class="stat-card">
+          <i class="fas fa-users"></i>
+          <div class="number">1,287</div>
+          <div class="label">Active Users</div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-hand-pointer"></i>
+          <div class="number">563</div>
+          <div class="label">Clicks Today</div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-gift"></i>
+          <div class="number">$3,456</div>
+          <div class="label">Paid Out</div>
+        </div>
+      </div>
+      
+      <div class="section-title">
+        <i class="fas fa-rocket"></i>
+        <span>Available Offers</span>
+      </div>
+      
+      <div class="link-grid">
+        <div class="link-card" data-platform="1xBet" data-link="https://bit.ly/1xbet6767">
+          <div class="link-icon" style="background: linear-gradient(135deg, #00c853, #009624);">
+            <div class="logo-container logo-1xbet">
+              <span style="font-weight: 700; font-size: 1.5rem; color: white;">1x</span>
+            </div>
+          </div>
+          <div class="link-content">
+            <h3>1xBet <span style="font-size: 0.7rem; background: #e8f5e9; color: #00c853; padding: 2px 8px; border-radius: 20px; margin-left: 8px;">Official</span></h3>
+            <p>100% Welcome Bonus up to $130</p>
+            <span class="bonus-tag">Exclusive Offer</span>
+          </div>
+        </div>
+        
+        <div class="link-card" data-platform="Linebet" data-link="https://bit.ly/linebet4747">
+          <div class="link-icon" style="background: linear-gradient(135deg, #ff5722, #e64a19);">
+            <div class="logo-container logo-linebet">
+              <span style="font-weight: 700; font-size: 1.5rem; color: white;">L</span>
+            </div>
+          </div>
+          <div class="link-content">
+            <h3>Linebet <span style="font-size: 0.7rem; background: #fbe9e7; color: #ff5722; padding: 2px 8px; border-radius: 20px; margin-left: 8px;">Official</span></h3>
+            <p>100% First Deposit Bonus</p>
+            <span class="bonus-tag">Limited Time</span>
+          </div>
+        </div>
+        
+        <div class="link-card" data-platform="Melbet" data-link="https://bit.ly/melbet4747">
+          <div class="link-icon" style="background: linear-gradient(135deg, #2196f3, #0d47a1);">
+            <div class="logo-container logo-melbet">
+              <span style="font-weight: 700; font-size: 1.5rem; color: white;">M</span>
+            </div>
+          </div>
+          <div class="link-content">
+            <h3>Melbet <span style="font-size: 0.7rem; background: #e3f2fd; color: #2196f3; padding: 2px 8px; border-radius: 20px; margin-left: 8px;">Official</span></h3>
+            <p>$30 Free + 100% Deposit Bonus</p>
+            <span class="bonus-tag">Special Promotion</span>
+          </div>
+        </div>
+        
+        <div class="link-card" data-platform="Betwinner" data-link="#">
+          <div class="link-icon" style="background: linear-gradient(135deg, #9c27b0, #6a1b9a);">
+            <div class="logo-container logo-betwinner">
+              <span style="font-weight: 700; font-size: 1.5rem; color: white;">B</span>
+            </div>
+          </div>
+          <div class="link-content">
+            <h3>Betwinner</h3>
+            <p>100% Bonus up to $150</p>
+            <span class="bonus-tag">New Users Only</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-title" style="margin-top: 30px;">
+        <i class="fas fa-history"></i>
+        <span>Recent Activity</span>
+      </div>
+      
+      <div class="activity-list">
+        <div class="link-card">
+          <div class="link-icon" style="background: #607d8b; width: 60px;">
+            <i class="fas fa-user-plus" style="color: white;"></i>
+          </div>
+          <div class="link-content">
+            <h3>New user registered</h3>
+            <p>2 minutes ago</p>
+          </div>
+        </div>
+        
+        <div class="link-card">
+          <div class="link-icon" style="background: var(--success); width: 60px;">
+            <i class="fas fa-link" style="color: white;"></i>
+          </div>
+          <div class="link-content">
+            <h3>Melbet link clicked</h3>
+            <p>15 minutes ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="app-footer">
+      <div class="footer-btn active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </div>
+      <div class="footer-btn">
+        <i class="fas fa-chart-line"></i>
+        <span>Stats</span>
+      </div>
+      <div class="footer-btn">
+        <i class="fas fa-wallet"></i>
+        <span>Earnings</span>
+      </div>
+      <div class="footer-btn">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Popup -->
+  <div class="overlay" id="overlay">
+    <div class="popup">
+      <div class="popup-header">
+        <i class="fas fa-gift"></i>
+        <h3 id="popup-title">Bonus Activated!</h3>
+      </div>
+      <div class="popup-content">
+        <p id="popup-text">Your exclusive bonus has been applied to your account. Enjoy your rewards!</p>
+      </div>
+      <div class="popup-actions">
+        <button class="popup-btn secondary" onclick="closePopup()">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+        <button class="popup-btn primary" id="visit-btn">
+          <i class="fas fa-external-link-alt"></i> Visit Site
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // === CONFIG ===
+    const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // Your GA4 Measurement ID
+    const TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN"; // Telegram Bot Token
+    const TELEGRAM_CHAT_ID = "YOUR_CHAT_ID"; // Your Telegram Chat ID
+    // =============
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.link-card');
+      const popup = document.getElementById('overlay');
+      const popupText = document.getElementById('popup-text');
+      const popupTitle = document.getElementById('popup-title');
+      const visitBtn = document.getElementById('visit-btn');
+      let currentLink = '';
+      
+      // Footer navigation
+      const footerBtns = document.querySelectorAll('.footer-btn');
+      footerBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          footerBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+      
+      // Link click handler
+      links.forEach(link => {
+        link.addEventListener('click', function() {
+          const platform = this.dataset.platform;
+          currentLink = this.dataset.link;
+          
+          // Add animation
+          this.classList.add('pulse');
+          setTimeout(() => this.classList.remove('pulse'), 400);
+          
+          // Update popup content
+          popupTitle.textContent = `${platform} Bonus!`;
+          popupText.textContent = `Your exclusive ${platform} bonus has been activated! Redirecting to the offer...`;
+          
+          // Show popup
+          popup.style.display = 'flex';
+          
+          // === Google Analytics 4 Event ===
+          if(window.gtag) {
+            gtag('event', 'affiliate_click', {
+              'event_category': 'Affiliate',
+              'event_label': platform,
+              'value': 1
+            });
+          }
+          
+          // === Telegram Notification ===
+          fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=Affiliate Link Clicked: ${platform}`)
+          .then(res => console.log('Telegram notified'))
+          .catch(err => console.error('Telegram error:', err));
+        });
+      });
+      
+      // Visit button handler
+      visitBtn.addEventListener('click', function() {
+        if(currentLink) {
+          window.open(currentLink, '_blank');
+        }
+        closePopup();
+      });
+      
+      // === Google Analytics Script Load ===
+      (function(){
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+        document.head.appendChild(gaScript);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_MEASUREMENT_ID);
+      })();
+    });
+    
+    function closePopup() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+    
+    // Close popup when clicking outside
+    document.getElementById('overlay').addEventListener('click', function(e) {
+      if(e.target === this) closePopup();
+    });
+  </script>
+</body>
+  </html>
