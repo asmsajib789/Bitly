@@ -368,150 +368,125 @@
     </style>
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Betly - Special Offer</title>
-    <style>
-        /* Mobile-optimized notification bar */
-        #notification-bar {
-            position: fixed;
-            top: -50px;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(90deg, #1a2a6c, #b21f1f);
-            color: white;
-            padding: 12px 0;
-            text-align: center;
-            z-index: 10000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 14px;
-            white-space: nowrap;
-            overflow: hidden;
-        }
+    <!-----popuop--->
+    <!-- Floating Get Offer Button -->
+<button id="get-offer-btn">🎁 Get Offer</button>
 
-        .slide-in {
-            animation: slideIn 0.5s forwards;
-        }
+<!-- Popup -->
+<div id="promo-popup">
+  <div id="popup-content">
+    <span id="close-btn">&times;</span>
+    <h2>🎯 Join Online Betting Now!</h2>
+    <p>Choose your favorite platform:</p>
+    
+    <!-- Betting Platform Buttons -->
+    <a href="https://refpa58144.com/L?tag=d_905607m_1622c_&site=905607&ad=1622" target="_blank" class="platform-btn btn-1xbet">1xBet</a>
+    <a href="https://lb-aff.com/L?tag=d_4476715m_22611c_&site=4476715&ad=22611" target="_blank" class="platform-btn btn-linebet">Linebet</a>
+    <a href="https://refpa3665.com/L?tag=d_1298429m_18639c_&site=1298429&ad=18639&r=user/registration.php" target="_blank" class="platform-btn btn-melbet">Melbet</a>
+  </div>
+</div>
 
-        .slide-out {
-            animation: slideOut 0.5s forwards;
-        }
+<style>
+/* Floating Button */
+#get-offer-btn {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #FF5722;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  animation: pulse 2s infinite;
+}
 
-        @keyframes slideIn {
-            to { top: 0; }
-        }
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.1); }
+}
 
-        @keyframes slideOut {
-            from { top: 0; }
-            to { top: -50px; }
-        }
+/* Popup Background */
+#promo-popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 9998;
+  align-items: center;
+  justify-content: center;
+}
 
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0 10px;
-            width: 100%;
-            justify-content: center;
-        }
+/* Popup Content */
+#popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  position: relative;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+}
 
-        .claim-btn {
-            background: #FFD700;
-            color: #000;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 13px;
-            margin-left: 8px;
-            white-space: nowrap;
-        }
+/* Show popup with slide-in */
+#promo-popup.show #popup-content {
+  transform: translateX(0);
+}
 
-        .close-btn {
-            background: transparent;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            margin-left: 10px;
-            padding: 0 5px;
-        }
+/* Close Button */
+#close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
 
-        /* Blinking animation for urgency */
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.8; }
-            100% { opacity: 1; }
-        }
-        
-        .blink {
-            animation: blink 1.5s infinite;
-        }
-    </style>
-</head>
-<body>
-    <!-- Notification Bar -->
-    <div id="notification-bar">
-        <div class="notification-content">
-            <span class="blink">🎯 LIMITED TIME!</span> 
-            <span>Get 100% Bonus →</span>
-            <button class="claim-btn" onclick="claimOffer()">CLAIM NOW</button>
-            <button class="close-btn" onclick="closeNotification()">×</button>
-        </div>
-    </div>
+/* Platform Buttons */
+.platform-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  width: 80%;
+  transition: 0.3s;
+}
 
-    <script>
-        const notification = document.getElementById('notification-bar');
-        let notificationTimer;
+/* Individual Button Colors */
+.btn-1xbet { background: #25D366; }
+.btn-linebet { background: #128C7E; }
+.btn-melbet { background: #FF9800; }
 
-        // Show notification immediately
-        function showNotification() {
-            notification.classList.add('slide-in');
-            notification.style.display = 'flex';
+.platform-btn:hover { opacity: 0.8; }
+</style>
+
+<script>
+// Floating button click -> show popup
+document.getElementById('get-offer-btn').addEventListener('click', () => {
+  document.getElementById('promo-popup').style.display = 'flex';
+  document.getElementById('promo-popup').classList.add('show');
+});
+
+// Close popup
+document.getElementById('close-btn').addEventListener('click', () => {
+  document.getElementById('promo-popup').classList.remove('show');
+  setTimeout(() => {
+    document.getElementById('promo-popup').style.display = 'none';
+  }, 400);
+});
+</script>
             
-            // Auto-close after 20 seconds
-            clearTimeout(notificationTimer);
-            notificationTimer = setTimeout(() => {
-                closeNotification();
-            }, 20000);
-        }
-
-        // Close notification
-        function closeNotification() {
-            notification.classList.remove('slide-in');
-            notification.classList.add('slide-out');
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-                notification.classList.remove('slide-out');
-                
-                // Show again after 1 minute
-                setTimeout(showNotification, 60000);
-            }, 500);
-        }
-
-        // Claim button function
-        function claimOffer() {
-            window.location.href = 'https://refpa58144.com/L?tag=d_905607m_1622c_2023&site=905607&ad=1622';
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            showNotification();
-        });
-    </script>
-</body>
-</html>
-            
-
     <!----ses---->
     
     <div class="app-container">
