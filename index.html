@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Betting Sites | Referral Links</title>
+    <title>Premium Betting Sites | Exclusive Offers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -29,6 +29,13 @@
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             overflow: hidden;
+            position: relative;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .app-header {
@@ -60,6 +67,13 @@
             justify-content: center;
             margin: 0 auto 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         .app-icon i {
@@ -121,6 +135,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
             border: 1px solid #eee;
+            position: relative;
         }
         
         .site-card:hover {
@@ -204,6 +219,134 @@
             border-top: 1px solid #eee;
         }
         
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .popup-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .popup-header {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .popup-header h2 {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .popup-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+        
+        .popup-body {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .bonus-icon {
+            font-size: 3rem;
+            color: #f1c40f;
+            margin-bottom: 15px;
+        }
+        
+        .bonus-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .bonus-text {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .popup-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .popup-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .cancel-btn {
+            background: #e0e0e0;
+            color: #7f8c8d;
+        }
+        
+        .cancel-btn:hover {
+            background: #d0d0d0;
+        }
+        
+        .visit-btn {
+            background: linear-gradient(to right, #27ae60, #2ecc71);
+            color: white;
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
+        }
+        
+        .visit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.5);
+        }
+        
+        .bonus-highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
         @media (max-width: 480px) {
             .app-header h1 {
                 font-size: 1.5rem;
@@ -212,6 +355,14 @@
             .join-button {
                 padding: 8px 15px;
                 font-size: 0.9rem;
+            }
+            
+            .popup-buttons {
+                flex-direction: column;
+            }
+            
+            .popup-btn {
+                width: 100%;
             }
         }
     </style>
@@ -222,7 +373,7 @@
             <div class="app-icon">
                 <i class="fas fa-crown"></i>
             </div>
-            <h1>Top Betting Sites</h1>
+            <h1>Premium Betting Sites</h1>
             <p>Exclusive offers with your referral</p>
         </div>
         
@@ -258,7 +409,7 @@
                             9.8 ★
                         </div>
                     </div>
-                    <a href="https://your-referral-link-1xbet.com" target="_blank" class="join-button">Join Now</a>
+                    <button class="join-button" data-site="1xBet" data-offer="200% Welcome Bonus">Join Now</button>
                 </div>
                 
                 <!-- Site 2 -->
@@ -271,7 +422,7 @@
                             9.5 ★
                         </div>
                     </div>
-                    <a href="https://your-referral-link-linebet.com" target="_blank" class="join-button">Join Now</a>
+                    <button class="join-button" data-site="Linebet" data-offer="₹20,000 Free Bet">Join Now</button>
                 </div>
                 
                 <!-- Site 3 -->
@@ -284,7 +435,7 @@
                             9.2 ★
                         </div>
                     </div>
-                    <a href="https://your-referral-link-melbet.com" target="_blank" class="join-button">Join Now</a>
+                    <button class="join-button" data-site="Melbet" data-offer="130% Deposit Bonus">Join Now</button>
                 </div>
             </div>
             
@@ -295,11 +446,90 @@
         </div>
         
         <div class="app-footer">
-            <p>© 2023 Top Betting Sites | All rights reserved</p>
+            <p>© 2023 Premium Betting Sites | All rights reserved</p>
+        </div>
+    </div>
+
+    <!-- Popup Structure -->
+    <div class="popup" id="bonusPopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2 id="popupSiteName">Site Name</h2>
+                <div class="popup-close" id="closePopup">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="popup-body">
+                <div class="bonus-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3 class="bonus-title">Exclusive Signup Bonus!</h3>
+                <p class="bonus-text">You're about to visit <span id="siteNameSpan" class="bonus-highlight">Site Name</span></p>
+                <p class="bonus-text">New users get: <br><span id="bonusOffer" class="bonus-highlight">Bonus Details</span></p>
+                <div class="popup-buttons">
+                    <button class="popup-btn cancel-btn" id="cancelBtn">Cancel</button>
+                    <button class="popup-btn visit-btn" id="visitBtn">Visit Site</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
+        // Popup functionality
+        const popup = document.getElementById('bonusPopup');
+        const closePopup = document.getElementById('closePopup');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const visitBtn = document.getElementById('visitBtn');
+        const popupSiteName = document.getElementById('popupSiteName');
+        const siteNameSpan = document.getElementById('siteNameSpan');
+        const bonusOffer = document.getElementById('bonusOffer');
+        
+        // Define referral links
+        const referralLinks = {
+            '1xBet': 'https://1xbet.com/?ref=12345',
+            'Linebet': 'https://linebet.com/?ref=67890',
+            'Melbet': 'https://melbet.com/?ref=54321'
+        };
+        
+        // Define bonus offers
+        const bonusOffers = {
+            '1xBet': '200% Welcome Bonus up to ₹20,000',
+            'Linebet': '₹20,000 Free Bet + 100 Free Spins',
+            'Melbet': '130% Deposit Bonus + ₹5,000 Free Bet'
+        };
+        
+        // Add click event to all join buttons
+        document.querySelectorAll('.join-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const siteName = this.getAttribute('data-site');
+                popupSiteName.textContent = siteName;
+                siteNameSpan.textContent = siteName;
+                bonusOffer.textContent = bonusOffers[siteName];
+                
+                // Set visit button link
+                visitBtn.onclick = function() {
+                    window.open(referralLinks[siteName], '_blank');
+                    popup.style.display = 'none';
+                };
+                
+                popup.style.display = 'flex';
+            });
+        });
+        
+        // Close popup when clicking close, cancel, or outside content
+        [closePopup, cancelBtn].forEach(element => {
+            element.addEventListener('click', function() {
+                popup.style.display = 'none';
+            });
+        });
+        
+        // Close popup when clicking outside the content
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+            }
+        });
+        
         // Add animation to buttons when clicked
         document.querySelectorAll('.join-button').forEach(button => {
             button.addEventListener('click', function() {
