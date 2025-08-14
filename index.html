@@ -369,19 +369,17 @@
 </head>
 <body>
     <!-----popuop--->
-    <!-- Header -->
-<header>
-  <h1>Bet Online 24</h1>
-  <!-- Get Offer Button -->
+
+<!-- Get Offer Button (footer এর উপরে, বামে) -->
+<div id="offer-container" style="position: fixed; bottom: 80px; left: 20px; z-index: 9999;">
   <button id="get-offer-btn">🎁 Get Offer</button>
-</header>
+</div>
 
 <!-- Popup -->
 <div id="promo-popup">
   <div id="popup-content">
     <span id="close-btn">&times;</span>
     <h2>🎯 Join Online Betting Now!</h2>
-    <p>Choose your favorite platform:</p>
     
     <!-- Betting Platform Buttons -->
     <a href="https://refpa58144.com/L?tag=d_905607m_1622c_&site=905607&ad=1622" target="_blank" class="platform-btn btn-1xbet">1xBet</a>
@@ -391,14 +389,13 @@
 </div>
 
 <style>
-/* Header */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
+/* Footer */
+footer {
   background: #0D47A1;
   color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
 }
 
 /* Get Offer Button */
@@ -407,8 +404,8 @@ header {
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 10px 15px;
-  font-size: 14px;
+  padding: 12px 20px;
+  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -477,21 +474,23 @@ header {
 </style>
 
 <script>
-// Get Offer Button click -> show popup
+// Show popup এবং hide button
 document.getElementById('get-offer-btn').addEventListener('click', () => {
+  document.getElementById('offer-container').style.display = 'none';
   document.getElementById('promo-popup').style.display = 'flex';
   document.getElementById('promo-popup').classList.add('show');
 });
 
-// Close popup
+// Close popup এবং show button
 document.getElementById('close-btn').addEventListener('click', () => {
   document.getElementById('promo-popup').classList.remove('show');
   setTimeout(() => {
     document.getElementById('promo-popup').style.display = 'none';
+    document.getElementById('offer-container').style.display = 'block';
   }, 400);
 });
 </script>
-            
+
     <!----ses---->
     
     <div class="app-container">
