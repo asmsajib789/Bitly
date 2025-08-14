@@ -376,9 +376,6 @@
             <h1>Premium Betting Sites</h1>
             <p>Exclusive offers with your referral</p>
         </div>
-        <marquee behavior="scroll" direction="left" scrollamount="5">
-    👑 100% BONUS OFFER for New Users! Join Now and Get Your Reward 💰
-        </marquee>
         
         <div class="stats-bar">
             <div class="stat">
@@ -418,7 +415,31 @@
                 <!-- Site 2 -->
                 <div class="site-card">
                     <div class="rank">2</div>
-                    <div<!DOCTYPE html>
+                    <div class="site-info">
+                        <div class="site-name">Linebet</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            9.5 ★
+                        </div>
+                    </div>
+                    <button class="join-button" data-site="Linebet" data-offer="₹20,000 Free Bet">Join Now</button>
+                </div>
+                
+                <!-- Site 3 -->
+                <div class="site-card">
+                    <div class="rank">3</div>
+                    <div class="site-info">
+                        <div class="site-name">Melbet</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            9.2 ★
+                        </div>
+                    </div>
+                    <button class="join-button" data-site="Melbet" data-offer="130% Deposit Bonus">Join Now</button>
+                </div>
+            </div>
+            <!----কন্ট্রাক্ট --->
+            <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -465,6 +486,11 @@
             position: relative;
         }
         
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
         .contact-header h2 {
             font-size: 1.6rem;
             margin-bottom: 5px;
@@ -474,6 +500,35 @@
         .contact-header p {
             font-size: 0.9rem;
             opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .operator-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(46, 204, 113, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #27ae60;
+            margin-top: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+        
+        .online-dot {
+            width: 12px;
+            height: 12px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
         
         .contact-content {
@@ -552,35 +607,6 @@
             color: #3498db;
         }
         
-        .online-indicator {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background: rgba(46, 204, 113, 0.15);
-            padding: 4px 8px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: #27ae60;
-            font-weight: 600;
-        }
-        
-        .online-dot {
-            width: 10px;
-            height: 10px;
-            background: #2ecc71;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
-            70% { box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
-        }
-        
         .contact-footer {
             background: #f8f9fa;
             padding: 15px;
@@ -588,6 +614,19 @@
             color: #7f8c8d;
             font-size: 0.8rem;
             border-top: 1px solid #eee;
+        }
+        
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            opacity: 0.3;
+            z-index: 1;
         }
         
         @media (max-width: 768px) {
@@ -598,14 +637,26 @@
             .contact-item {
                 min-width: 100%;
             }
+            
+            .operator-status {
+                font-size: 0.9rem;
+                padding: 6px 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="contact-container">
         <div class="contact-header">
-            <h2>Contact Support</h2>
-            <p>We're here to help with any questions</p>
+            <div class="header-pattern"></div>
+            <div class="header-content">
+                <h2>Contact Support</h2>
+                <p>We're here to help with any questions</p>
+                <div class="operator-status">
+                    <div class="online-dot"></div>
+                    Operator Online
+                </div>
+            </div>
         </div>
         
         <div class="contact-content">
@@ -650,10 +701,6 @@
                     </div>
                     <h3>Working Hours</h3>
                     <p>24/7 Support</p>
-                    <div class="online-indicator">
-                        <div class="online-dot"></div>
-                        Operator Online
-                    </div>
                 </div>
             </div>
         </div>
@@ -681,34 +728,8 @@
         });
     </script>
 </body>
-</html> class="site-info">
-                        <div class="site-name">Linebet</div>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            9.5 ★
-                        </div>
-                    </div>
-                    <button class="join-button" data-site="Linebet" data-offer="₹20,000 Free Bet">Join Now</button>
-                </div>
-                
-                <!-- Site 3 -->
-                <div class="site-card">
-                    <div class="rank">3</div>
-                    <div class="site-info">
-                        <div class="site-name">Melbet</div>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            9.2 ★
-                        </div>
-                    </div>
-                    <button class="join-button" data-site="Melbet" data-offer="130% Deposit Bonus">Join Now</button>
-                </div>
-            </div>
-            <!-----contract ----->
-
-                        
-
-            <!------end contract --->
+</html>
+            <!--ses---->
             
             <div class="disclaimer">
                 <i class="fas fa-exclamation-circle"></i> 
@@ -757,9 +778,9 @@
         
         // Define referral links
         const referralLinks = {
-            '1xBet': 'https://refpa58144.com/L?tag=d_905607m_1236c_promo&site=905607&ad=1236&r=registration?type=fast&bonus=SPORT',
-            'Linebet': 'https://lb-aff.com/L?tag=d_3865355m_22611c_site&site=3865355&ad=22611&r=registration',
-            'Melbet': 'https://refpa3665.com/L?tag=d_1298429m_18639c_&site=1298429&ad=18639'
+            '1xBet': 'https://1xbet.com/?ref=12345',
+            'Linebet': 'https://linebet.com/?ref=67890',
+            'Melbet': 'https://melbet.com/?ref=54321'
         };
         
         // Define bonus offers
