@@ -368,6 +368,170 @@
     </style>
 </head>
 <body>
+    <!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betly - বিশেষ অফার!</title>
+    <style>
+        /* নোটিফিকেশন বার স্টাইল */
+        #notification-bar {
+            position: fixed;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .slide-in {
+            animation: slideIn 0.8s forwards;
+        }
+
+        .slide-out {
+            animation: slideOut 0.8s forwards;
+        }
+
+        @keyframes slideIn {
+            to { top: 0; }
+        }
+
+        @keyframes slideOut {
+            from { top: 0; }
+            to { top: -100px; }
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .notification-content p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .claim-btn {
+            background: #FFD700;
+            color: #000;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+
+        .claim-btn:hover {
+            background: #FFA500;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+
+        .close-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: rgba(255,255,255,0.4);
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .notification-content {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .notification-content p {
+                font-size: 15px;
+            }
+            .claim-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- নোটিফিকেশন বার -->
+    <div id="notification-bar">
+        <div class="notification-content">
+            <p>🎉 ১০০% বোনাস পেতে এখনই ক্লিক করুন! 200% পর্যন্ত বেটিং বোনাস!</p>
+            <button class="claim-btn" onclick="claimOffer()">ক্লেইম করুন</button>
+        </div>
+        <button class="close-btn" onclick="closeNotification()">✕</button>
+    </div>
+
+    <script>
+        const notification = document.getElementById('notification-bar');
+        let notificationTimer;
+
+        // প্রথম বার শো করার ফাংশন
+        function showNotification() {
+            notification.classList.add('slide-in');
+            notification.style.display = 'flex';
+            
+            // ২০ সেকেন্ড পর স্বয়ংক্রিয় বন্ধ
+            clearTimeout(notificationTimer);
+            notificationTimer = setTimeout(() => {
+                closeNotification();
+            }, 20000);
+        }
+
+        // বন্ধ করার ফাংশন
+        function closeNotification() {
+            notification.classList.remove('slide-in');
+            notification.classList.add('slide-out');
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+                notification.classList.remove('slide-out');
+                
+                // ১ মিনিট পর আবার শো করবে
+                setTimeout(showNotification, 60000);
+            }, 800);
+        }
+
+        // ক্লেইম বাটন ফাংশন
+        function claimOffer() {
+            window.location.href = 'https://refpa58144.com/L?tag=d_905607m_1622c_2023&site=905607&ad=1622';
+        }
+
+        // পেজ লোড হওয়ার সাথে সাথে শো করবে
+        document.addEventListener('DOMContentLoaded', function() {
+            showNotification();
+        });
+    </script>
+</body>
+</html>
+
+    <!----ses---->
+    
     <div class="app-container">
         <div class="app-header">
             <div class="app-icon">
