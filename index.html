@@ -123,6 +123,40 @@
             position: relative;
             z-index: 2;
         }
+                /* Marquee Styles */
+        .marquee-container {
+            background: rgba(231, 76, 60, 0.2);
+            padding: 12px 0;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+        
+        .marquee {
+            white-space: nowrap;
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .marquee-item i {
+            color: var(--success);
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
         
         .app-icon {
             width: 70px;
@@ -696,7 +730,7 @@
     </style>
 </head>
     <body>
-        <!-- Marquee -->
+                <!-- Marquee -->
         <div class="marquee-container">
             <div class="marquee">
                 <div class="marquee-item"><i class="fas fa-gift"></i> New users get 200% bonus up to $200</div>
