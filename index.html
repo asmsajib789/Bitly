@@ -24,7 +24,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2px;
+            padding: 3px;
             position: relative;
             overflow-x: hidden;
         }
@@ -751,7 +751,7 @@
                 <div class="label">Avg. Rating</div>
             </div>
             <div class="stat">
-                <div class="number">15M+</div>
+                <div class="number">4M+</div>
                 <div class="label">Users</div>
             </div>
         </div>
@@ -827,11 +827,11 @@
                 <div class="bonus-icon">
                     <i class="fas fa-gift"></i>
                 </div>
-                <h3 class="bonus-title"></h3>
+                <h3 class="bonus-title">Exclusive Signup Bonus!</h3>
                 <p class="bonus-text">You're about to visit <span id="siteNameSpan" class="bonus-highlight">Site Name</span></p>
                 <p class="bonus-text">New users get: <br><span id="bonusOffer" class="bonus-highlight">Bonus Details</span></p>
                 <div class="popup-buttons">
-                   
+                    <button class="popup-btn cancel-btn" id="cancelBtn">Cancel</button>
                     <button class="popup-btn visit-btn" id="visitBtn">Visit Site</button>
                 </div>
             </div>
@@ -934,6 +934,6 @@
                 document.getElementById('offer-container').style.display = 'block';
             }, 400);
         });
-    </script>  
+    </script>
 </body>
 </html>
