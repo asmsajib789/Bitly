@@ -803,6 +803,640 @@
                 </div>
             </div>
 
+            <!-----testimonil---->
+            
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আকর্ষণীয় টেস্টিমোনিয়াল সিস্টেম</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .testimonials-section {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .filters {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: white;
+            color: #2575fc;
+        }
+        
+        .add-btn {
+            background: linear-gradient(to right, #ff8a00, #da1b60);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(218, 27, 96, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .add-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(218, 27, 96, 0.6);
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 120px;
+            font-family: Georgia, serif;
+            color: rgba(255, 255, 255, 0.1);
+            line-height: 1;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff8a00, #da1b60);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .user-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .user-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .rating {
+            display: flex;
+            margin: 15px 0;
+        }
+        
+        .rating i {
+            color: #FFD700;
+            font-size: 18px;
+            margin-right: 3px;
+        }
+        
+        .content {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+        
+        .date {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-align: right;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #ff8a00, #da1b60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* মডাল স্টাইল */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a2a6c, #3a7bd5);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: white;
+            transform: rotate(90deg);
+        }
+        
+        .modal h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff8a00;
+        }
+        
+        .rating-input {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .rating-input i {
+            font-size: 32px;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .rating-input i.active,
+        .rating-input i:hover {
+            color: #FFD700;
+            transform: scale(1.2);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(to right, #ff8a00, #da1b60);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(218, 27, 96, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(218, 27, 96, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>আমাদের ক্লায়েন্টদের অভিজ্ঞতা</h1>
+            <p class="subtitle">আমাদের সেবা সম্পর্কে আমাদের মূল্যবান ক্লায়েন্টরা যা বলছেন তা দেখুন। আপনার অভিজ্ঞতাও শেয়ার করুন!</p>
+        </header>
+        
+        <section class="testimonials-section">
+            <div class="controls">
+                <div class="filters">
+                    <button class="filter-btn active">সব</button>
+                    <button class="filter-btn">৫ স্টার</button>
+                    <button class="filter-btn">৪ স্টার</button>
+                    <button class="filter-btn">সাম্প্রতিক</button>
+                </div>
+                <button class="add-btn" id="openModal">
+                    <i class="fas fa-plus"></i>
+                    আপনার মন্তব্য যোগ করুন
+                </button>
+            </div>
+            
+            <div class="testimonials-container" id="testimonialsContainer">
+                <!-- টেস্টিমোনিয়াল কার্ড এখানে জাভাস্ক্রিপ্টের মাধ্যমে যোগ হবে -->
+            </div>
+        </section>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">৯৮%</div>
+                <div class="stat-label">সন্তুষ্ট ক্লায়েন্ট</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">১৫০০+</div>
+                <div class="stat-label">ইতিবাচক রিভিউ</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">৪.৯</div>
+                <div class="stat-label">গড় রেটিং</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- মডাল ফর্ম -->
+    <div class="modal" id="testimonialModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>আপনার অভিজ্ঞতা শেয়ার করুন</h2>
+            <form id="testimonialForm">
+                <div class="form-group">
+                    <label for="name">আপনার নাম</label>
+                    <input type="text" id="name" placeholder="নাম লিখুন" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">আপনার পেশা/ভূমিকা</label>
+                    <input type="text" id="role" placeholder="পেশা লিখুন" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>রেটিং দিন</label>
+                    <div class="rating-input" id="ratingInput">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                    <input type="hidden" id="rating" name="rating" value="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="testimonial">আপনার মন্তব্য</label>
+                    <textarea id="testimonial" placeholder="আপনার অভিজ্ঞতা সম্পর্কে লিখুন..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">সাবমিট করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // টেস্টিমোনিয়াল ডেটা
+        const testimonials = [
+            {
+                name: "রাহুল ইসলাম",
+                role: "ব্যবসায়ী",
+                rating: 5,
+                content: "এই সাইটটি আমার ব্যবসাকে সম্পূর্ণ বদলে দিয়েছে! গ্রাহক সেবা অসাধারণ এবং বৈশিষ্ট্যগুলি সহজেই ব্যবহারযোগ্য। দ্রুত সাড়া দেওয়ার জন্য বিশেষ ধন্যবাদ।",
+                date: "১০ আগস্ট, ২০২৪"
+            },
+            {
+                name: "সুমাইয়া আক্তার",
+                role: "ফ্রিল্যান্স ডিজাইনার",
+                rating: 4,
+                content: "অত্যন্ত ব্যবহারকারী-বান্ধব ইন্টারফেস। আমার কাজের গতি বেড়েছে দ্বিগুণ। কিছু ছোটখাটো সমস্যা আছে, কিন্তু সামগ্রিকভাবে দুর্দান্ত অভিজ্ঞতা।",
+                date: "৫ আগস্ট, ২০২৪"
+            },
+            {
+                name: "আরিফুল হক",
+                role: "শিক্ষার্থী",
+                rating: 5,
+                content: "এটি আমার পড়াশোনার জন্য একটি চমৎকার সম্পদ। বিষয়বস্তু সুসংগঠিত এবং সহজেই অনুসরণযোগ্য। আমি প্রতিদিন এটি ব্যবহার করি এবং অনেক কিছু শিখেছি।",
+                date: "২৯ জুলাই, ২০২৪"
+            },
+            {
+                name: "নুসরাত জাহান",
+                role: "ওয়েব ডেভেলপার",
+                rating: 5,
+                content: "ডকুমেন্টেশন এবং সম্প্রদায় সহায়তা অসাধারণ। আমি প্রায়ই সমস্যায় পড়ি, কিন্তু সাহায্য পেতে কখনই সমস্যা হয়নি। এই প্ল্যাটফর্মটি সত্যিই জীবনের পরিবর্তনকারী!",
+                date: "২২ জুলাই, ২০২৪"
+            },
+            {
+                name: "ইমরান হোসেন",
+                role: "মার্কেটিং ম্যানেজার",
+                rating: 4,
+                content: "আমাদের টিমের জন্য একটি চমৎকার সরঞ্জাম। রিপোর্টিং বৈশিষ্ট্যগুলি আমাদের সিদ্ধান্ত গ্রহণের প্রক্রিয়াকে উন্নত করেছে। কাস্টমাইজেশন বিকল্পগুলি আরও ভালো হতে পারে।",
+                date: "১৫ জুলাই, ২০২৪"
+            },
+            {
+                name: "তানজিনা আক্তার",
+                role: "কন্টেন্ট রাইটার",
+                rating: 5,
+                content: "আমি এই প্ল্যাটফর্মটি ব্যবহার করে খুবই খুশি। এটি আমার উৎপাদনশীলতা উল্লেখযোগ্যভাবে বৃদ্ধি করেছে এবং আমাকে আরও ভালো কাজ সরবরাহ করতে সাহায্য করেছে।",
+                date: "৮ জুলাই, ২০২৪"
+            }
+        ];
+
+        // DOM এলিমেন্ট
+        const testimonialsContainer = document.getElementById('testimonialsContainer');
+        const testimonialModal = document.getElementById('testimonialModal');
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const testimonialForm = document.getElementById('testimonialForm');
+        const ratingInput = document.getElementById('ratingInput');
+        const ratingStars = ratingInput.querySelectorAll('i');
+        const ratingValue = document.getElementById('rating');
+
+        // টেস্টিমোনিয়াল কার্ড তৈরি
+        function renderTestimonials() {
+            testimonialsContainer.innerHTML = '';
+            
+            testimonials.forEach(testimonial => {
+                const stars = '★'.repeat(testimonial.rating) + '☆'.repeat(5 - testimonial.rating);
+                
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+                card.innerHTML = `
+                    <div class="user-info">
+                        <div class="avatar">${testimonial.name.charAt(0)}</div>
+                        <div class="user-details">
+                            <div class="user-name">${testimonial.name}</div>
+                            <div class="user-role">${testimonial.role}</div>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        ${Array(testimonial.rating).fill('<i class="fas fa-star"></i>').join('')}
+                        ${Array(5 - testimonial.rating).fill('<i class="far fa-star"></i>').join('')}
+                    </div>
+                    <p class="content">${testimonial.content}</p>
+                    <div class="date">${testimonial.date}</div>
+                `;
+                
+                testimonialsContainer.appendChild(card);
+            });
+        }
+
+        // রেটিং সিস্টেম
+        ratingStars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                ratingValue.value = rating;
+                
+                ratingStars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas', 'active');
+                    } else {
+                        s.classList.remove('fas', 'active');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+
+        // মডাল কন্ট্রোল
+        openModalBtn.addEventListener('click', () => {
+            testimonialModal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            testimonialModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === testimonialModal) {
+                testimonialModal.style.display = 'none';
+            }
+        });
+
+        // ফর্ম সাবমিশন
+        testimonialForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const role = document.getElementById('role').value;
+            const rating = parseInt(ratingValue.value);
+            const content = document.getElementById('testimonial').value;
+            
+            if (rating === 0) {
+                alert('দয়া করে রেটিং দিন');
+                return;
+            }
+            
+            // নতুন টেস্টিমোনিয়াল যোগ করুন
+            const newTestimonial = {
+                name,
+                role,
+                rating,
+                content,
+                date: new Date().toLocaleDateString('bn-BD', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                })
+            };
+            
+            testimonials.unshift(newTestimonial);
+            renderTestimonials();
+            
+            // ফর্ম রিসেট করুন
+            testimonialForm.reset();
+            ratingStars.forEach(star => {
+                star.classList.remove('fas', 'active');
+                star.classList.add('far');
+            });
+            ratingValue.value = 0;
+            
+            // মডাল বন্ধ করুন
+            testimonialModal.style.display = 'none';
+            
+            // সফলতার বার্তা
+            alert('আপনার মন্তব্য সফলভাবে জমা দেওয়া হয়েছে! ধন্যবাদ আপনার অভিজ্ঞতা শেয়ার করার জন্য।');
+        });
+
+        // ফিল্টার বাটন
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // বাস্তব অ্যাপ্লিকেশনে এখানে ফিল্টারিং লজিক যোগ করুন
+            });
+        });
+
+        // শুরুতে টেস্টিমোনিয়াল রেন্ডার করুন
+        renderTestimonials();
+    </script>
+</body>
+</html>
+
+            
+            <!-----testimonil শেষ---->
+
             <div class="disclaimer">
                 <i class="fas fa-exclamation-circle"></i> 
                 Must be 18+ to participate. Bet responsibly. Gambling can be addictive.
